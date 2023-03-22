@@ -1,6 +1,6 @@
 import { Container } from "./styles";
-import income from "../../assets/income.png";
-import outcome from "../../assets/outcome.png";
+import income from "../../assets/income-modal.png";
+import outcome from "../../assets/outcome-modal.png";
 import total from "../../assets/total.png";
 
 export function Summary() {

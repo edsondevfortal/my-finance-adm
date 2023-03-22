@@ -17,10 +17,6 @@ export const Container = styled.div`
       color: #146c8a;
       font-weight: 500;
       font-size: 1.1rem;
-      img {
-        width: 33px;
-        height: 33px;
-      }
     }
     strong {
       display: block;

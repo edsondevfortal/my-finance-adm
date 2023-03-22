@@ -62,12 +62,12 @@ export const ContainerNewTransactionsButton = styled.div`
 
 interface RadioBoxButtonProps {
   isActive: boolean;
-  isActiveBgColor: "bgDepositColor" | "bgWidthdrawColor";
+  isActiveBgColor: "green" | "red";
 }
 
 const colors = {
-  bgDepositColor: "#faffef",
-  bgWidthdrawColor: "#ffd2d2",
+  green: "#faffef",
+  red: "#ffd2d2",
 };
 
 export const RadioBoxButton = styled.button<RadioBoxButtonProps>`

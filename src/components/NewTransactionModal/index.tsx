@@ -38,7 +38,7 @@ export function NewTransactionModal({
               type="button"
               onClick={() => setNewTransactionType("deposit")}
               isActive={newTransactionType == "deposit"}
-              isActiveBgColor={"bgDepositColor"}
+              isActiveBgColor={"green"}
             >
               <img src={incomeModal} alt="Entrada" />
               <span>Entrada?</span>
@@ -48,7 +48,7 @@ export function NewTransactionModal({
               type="button"
               onClick={() => setNewTransactionType("widthdraw")}
               isActive={newTransactionType == "widthdraw"}
-              isActiveBgColor={"bgWidthdrawColor"}
+              isActiveBgColor={"red"}
             >
               <img src={outcomeModal} alt="Entrada" />
               <span>ou Saída?</span>

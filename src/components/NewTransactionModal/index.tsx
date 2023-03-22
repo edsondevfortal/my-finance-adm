@@ -1,8 +1,13 @@
 import ReactModal from "react-modal";
-import { Container, ContainerNewTransactionsButtom } from "./styles";
+import {
+  Container,
+  ContainerNewTransactionsButton,
+  RadioBoxButton,
+} from "./styles";
 import modalClose from "../../assets/modal-close.png";
 import incomeModal from "../../assets/income-modal.png";
 import outcomeModal from "../../assets/outcome-modal.png";
+import { useState } from "react";
 
 interface NewTransactionModalProps {
   isOpen: boolean;
@@ -13,6 +18,8 @@ export function NewTransactionModal({
   isOpen,
   onRequestClose,
 }: NewTransactionModalProps) {
+  const [newTransactionType, setNewTransactionType] = useState("deposit");
+
   return (
     <>
       <ReactModal
@@ -26,16 +33,27 @@ export function NewTransactionModal({
           <input type="text" placeholder="Título" />
           <input type="number" placeholder="Valor" />
           <input type="text" placeholder="Categoria" />
-          <ContainerNewTransactionsButtom>
-            <button type="button">
+          <ContainerNewTransactionsButton>
+            <RadioBoxButton
+              type="button"
+              onClick={() => setNewTransactionType("deposit")}
+              isActive={newTransactionType == "deposit"}
+              isActiveBgColor={"bgDepositColor"}
+            >
               <img src={incomeModal} alt="Entrada" />
               <span>Entrada?</span>
-            </button>
-            <button type="button">
-              <img src={outcomeModal} alt="Saída" />
+            </RadioBoxButton>
+
+            <RadioBoxButton
+              type="button"
+              onClick={() => setNewTransactionType("widthdraw")}
+              isActive={newTransactionType == "widthdraw"}
+              isActiveBgColor={"bgWidthdrawColor"}
+            >
+              <img src={outcomeModal} alt="Entrada" />
               <span>ou Saída?</span>
-            </button>
-          </ContainerNewTransactionsButtom>
+            </RadioBoxButton>
+          </ContainerNewTransactionsButton>
           <button type="submit">Confirmar</button>
           <button
             type="button"

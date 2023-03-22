@@ -12,7 +12,7 @@ export const Container = styled.form`
     padding: 0 1.5rem;
     height: 4rem;
     border-radius: 0.25rem;
-    border: 1 solid #d7d7d7;
+    border: 1px solid #d7d7d7;
     background: #ededed;
     font-weight: 400;
     font-size: 1rem;
@@ -53,34 +53,46 @@ export const Container = styled.form`
   }
 `;
 
-export const ContainerNewTransactionsButtom = styled.div`
+export const ContainerNewTransactionsButton = styled.div`
   margin: 1rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
+`;
 
-  button {
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #d7d7d7;
-    border-radius: 0.25rem;
-    background: transparent;
+interface RadioBoxButtonProps {
+  isActive: boolean;
+  isActiveBgColor: "bgDepositColor" | "bgWidthdrawColor";
+}
 
-    img {
-      width: 25px;
-      height: 25px;
-    }
+const colors = {
+  bgDepositColor: "#faffef",
+  bgWidthdrawColor: "#ffd2d2",
+};
 
-    span {
-      display: block;
-      font-size: 1rem;
-      color: #5a608c;
-      margin-left: 1rem;
-    }
-    &:hover {
-      border-color: #aaa;
-    }
+export const RadioBoxButton = styled.button<RadioBoxButtonProps>`
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d7d7d7;
+  border-radius: 0.25rem;
+  color: #fff;
+
+  img {
+    width: 25px;
+    height: 25px;
   }
+
+  span {
+    display: block;
+    font-size: 1rem;
+    color: #5a608c;
+    margin-left: 1rem;
+  }
+  &:hover {
+    border-color: rgb(170, 170, 170, 0.52);
+  }
+  background: ${(props) =>
+    props.isActive ? colors[props.isActiveBgColor] : "transparent"};
 `;

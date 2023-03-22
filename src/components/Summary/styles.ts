@@ -28,7 +28,7 @@ export const Container = styled.div`
     }
 
     &.bg-income {
-      background: #f3ffda;
+      background: #f7ffe6;
     }
 
     &.bg-outcome {
@@ -39,8 +39,7 @@ export const Container = styled.div`
     }
 
     &.bg-balance {
-      background: #f3ffda;
-      
+      background: #f7ffe6;
     }
   }
 `;

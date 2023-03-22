@@ -52,3 +52,35 @@ export const Container = styled.form`
     }
   }
 `;
+
+export const ContainerNewTransactionsButtom = styled.div`
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+
+  button {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d7d7d7;
+    border-radius: 0.25rem;
+    background: transparent;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+
+    span {
+      display: block;
+      font-size: 1rem;
+      color: #5a608c;
+      margin-left: 1rem;
+    }
+    &:hover {
+      border-color: #aaa;
+    }
+  }
+`;

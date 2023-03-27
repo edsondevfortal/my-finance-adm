@@ -1,11 +1,9 @@
-import { useEffect } from "react";
+import { useContext } from "react";
+import { TransactionsContext } from "../../TransactionsContext";
 import { Container } from "./styles";
-import { api } from "../../services/api";
 
-export function TransitionTable() {
-  useEffect(() => {
-    api.get("transactions").then((data) => console.log(data));
-  }, []);
+export function TransactionsTable() {
+  const { transactionData } = useContext(TransactionsContext);
 
   return (
     <>
@@ -21,36 +19,23 @@ export function TransitionTable() {
           </thead>
 
           <tbody>
-            <tr>
-              <td>mock</td>
-              <td className="widthdraw">- 99,04</td>
-              <td>mock</td>
-              <td>00/00/00</td>
-            </tr>
-            <tr>
-              <td>mock</td>
-              <td className="widthdraw">- 85.98</td>
-              <td>mock</td>
-              <td>00/00/00</td>
-            </tr>
-            <tr>
-              <td>mock</td>
-              <td className="deposit">74.99</td>
-              <td>mock</td>
-              <td>00/00/00</td>
-            </tr>
-            <tr>
-              <td>mock</td>
-              <td className="widthdraw">- 250.00</td>
-              <td>Alimentação</td>
-              <td>00/00/00</td>
-            </tr>
-            <tr>
-              <td>mock</td>
-              <td className="deposit">4.700</td>
-              <td>mock</td>
-              <td>00/00/00</td>
-            </tr>
+            {transactionData.reverse().map((response) => (
+              <tr key={response.id}>
+                <td>{response.title}</td>
+                <td className={response.type}>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(response.amount)}
+                </td>
+                <td>{response.category}</td>
+                <td>
+                  {new Intl.DateTimeFormat("pt-BR").format(
+                    new Date(response.date)
+                  )}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </Container>

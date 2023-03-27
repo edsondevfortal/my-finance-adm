@@ -4,6 +4,7 @@ import { Dashboard } from "./components/Dashboard";
 import { useState } from "react";
 import ReactModal from "react-modal";
 import { NewTransactionModal } from "./components/NewTransactionModal";
+import { TransactionsProvider } from "./TransactionsContext";
 
 // accessibility | informing that the modal is on the page
 ReactModal.setAppElement("#root");
@@ -21,7 +22,7 @@ export function App() {
   }
 
   return (
-    <>
+    <TransactionsProvider>
       <Header openNewTransactionModal={transactionModal} />
       <Dashboard />
       <Globalstyle />
@@ -29,6 +30,6 @@ export function App() {
         isOpen={isNewTransactionModalOpen}
         onRequestClose={transactionModal}
       />
-    </>
+    </TransactionsProvider>
   );
 }

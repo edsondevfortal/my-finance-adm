@@ -24,10 +24,10 @@ export const Container = styled.div`
         font-weight: 500;
       }
 
-      &.deposit {
+      &.entrada {
         color: #08b049;
       }
-      &.widthdraw {
+      &.saida {
         color: #d2024a;
       }
     }
